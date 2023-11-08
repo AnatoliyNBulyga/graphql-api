@@ -1,0 +1,8 @@
+# api
+node_modules
+build
+dist
+.env
+
+# IDE
+.idea

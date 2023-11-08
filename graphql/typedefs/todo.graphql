@@ -1,0 +1,13 @@
+# Types
+type Todo implements Timestamps {
+    id: ID!
+    title: String!
+    description: String!
+    status: Status!
+    position: Int!
+    authorId: ID!
+
+    # Interface required
+    createdAt: Date!
+    updatedAt: Date!
+}
