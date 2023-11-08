@@ -16,9 +16,12 @@
 
 4. npm run dev
 
+## Test url after runnig the server
+``` 
+ http://localhost:5000/graphql
+ ```
 
 # Node version
 
-``` 
- > 16.0.0
- ```
+ ### > 16.0.0
+
