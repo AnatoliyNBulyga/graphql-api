@@ -13,7 +13,7 @@
 
 2. Add .env file to the root of project
 
-3. Run `yarn seed` (To add a test Admin user)
+3. Run `yarn seed` (Optional, to add a test Admin user)
 
 4. Run `yarn dev`
 

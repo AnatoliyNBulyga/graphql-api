@@ -6,7 +6,7 @@
     "dev": "nodemon ./index.js --exec babel-node",
     "start": "node index.js",
     "seed": "babel-node ./db/scripts/seed.js",
-    "test": "jest -i",
+    "test": "yarn seed && yarn jest -i",
     "prettier:fix": "prettier --write .",
     "prettier:check": "prettier --check ."
   },
