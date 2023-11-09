@@ -2,74 +2,49 @@
 scalar Date
 
 type Query {
+  #Todos
+  getTodos: [Todo]!
+  getTodoById(id: ID!): Todo!
 
-    #Todos
-    getTodos: [Todo]!
-    getTodoById(
-        id: ID!
-    ): Todo!
+  #User
+  getAllUsers: [User]!
+  getUserById(id: ID!): User!
 
-    #User
-    getAllUsers: [User]!
-    getUserById(
-        id: ID!
-    ): User!
-
-    #Auth
-    getCurrentUser: SecureUser!
-    logout: String!
+  #Auth
+  getCurrentUser: SecureUser!
+  logout: String!
 }
 
 type Mutation {
+  #Todos
+  addTodo(title: String!, description: String!, status: Status!): Todo!
+  updateTodo(id: ID!, title: String, description: String, status: Status): Todo!
+  updatePositionTodo(id: ID!, newPosition: Int!): String!
+  deleteTodo(id: ID!): String!
 
-    #Todos
-    addTodo(
-        title: String!
-        description: String!
-        status: Status!
-    ): Todo!
-    updateTodo(
-        id: ID!,
-        title: String
-        description: String
-        status: Status
-    ): Todo!
-    updatePositionTodo(
-        id: ID!,
-        newPosition: Int!
-    ): String!
-    deleteTodo( id: ID! ): String!
+  #User
+  updateUser(
+    id: ID!
+    name: String
+    email: String
+    password: String
+    role: Role
+  ): User!
+  deleteUser(id: ID!): String!
 
-    #User
-    updateUser(
-        id: ID!
-        name: String
-        email: String
-        password: String
-        role: Role
-    ): User!
-    deleteUser( id: ID! ): String!
-
-    #Auth
-    signUp(
-        name: String!
-        email: String!
-        password: String!
-    ): AuthPayload
-    login(
-        email: String!
-        password: String!
-    ): AuthPayload
+  #Auth
+  signUp(name: String!, email: String!, password: String!): AuthPayload
+  login(email: String!, password: String!): AuthPayload
 }
 
 # Enums
 enum Status {
-    TODO
-    DOING
-    DONE
+  TODO
+  DOING
+  DONE
 }
 
 enum Role {
-    USER
-    ADMIN
+  USER
+  ADMIN
 }

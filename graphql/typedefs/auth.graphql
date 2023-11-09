@@ -1,11 +1,11 @@
 type SecureUser {
-    id: ID!
-    name: String!
-    email: String!
-    role: Role!
+  id: ID!
+  name: String!
+  email: String!
+  role: Role!
 }
 
 type AuthPayload {
-    token: String
-    user: SecureUser
+  token: String
+  user: SecureUser
 }

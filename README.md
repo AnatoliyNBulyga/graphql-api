@@ -1,27 +1,32 @@
 ## Todo test api
 
 **Stack:**
+
 - Express.js
 - MongoDB
 - Mongoose
-- Graphql
+- Apollo Graphql Server
 
 ## How to run
 
-1. npm install
+1. Clone the repo & run `yarn install` to download all the dependencies
 
-2. add .env file to the root
+2. Add .env file to the root of project
 
-3. npm run seed (Optional to add a test Admin user)
+3. Run `yarn seed` (To add a test Admin user)
 
-4. npm run dev
+4. Run `yarn dev`
 
 ## Test url after runnig the server
-``` 
+
+```
  http://localhost:5000/graphql
- ```
+```
+
+## How to test
+
+1. Run `yarn test`
 
 # Node version
 
- ### > 16.0.0
-
+### > 16.0.0
