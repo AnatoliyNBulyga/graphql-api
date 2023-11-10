@@ -1,19 +1,24 @@
 import dotenv from "dotenv";
 
-dotenv.config();
+const envObject = process.env.NODE_ENV
+  ? { path: `.env.${process.env.NODE_ENV}` }
+  : {};
+
+dotenv.config(envObject);
 
 const port = process.env.PORT || 5000;
 
 // You may use this as a boolean value for different situations
 const env = {
-  development: process.env.NODE_ENV === "development",
-  test: process.env.NODE_ENV === "test",
-  staging: process.env.NODE_ENV === "staging",
-  production: process.env.NODE_ENV === "production",
+  development: process.env.NODE_ENV?.toLowerCase() === "development",
+  test: process.env.NODE_ENV?.toLowerCase() === "test",
+  staging: process.env.NODE_ENV?.toLowerCase() === "staging",
+  production: process.env.NODE_ENV?.toLowerCase() === "production",
 };
 
 const mongo = {
   url: process.env.MONGO_URI,
+  test_url: process.env.MONGO_URI_TEST,
 };
 
 const jwtToken = {

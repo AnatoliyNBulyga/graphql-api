@@ -1,5 +1,4 @@
-import { connection } from "mongoose";
-import connectDB from "../";
+import connectDB, { closeConnection } from "../";
 import User from "../models/User";
 import { testUser } from "../../config/environment";
 import bcrypt from "bcrypt";
@@ -33,8 +32,7 @@ export const seed = async () => {
   } else {
     console.log("Database is up-to-date");
   }
-
-  connection.close();
+  await closeConnection();
 };
 
 seed();

@@ -25,7 +25,6 @@ const initServer = async () => {
 
   try {
     await connectDB();
-    console.log("Connected to database");
   } catch (error) {
     console.log(error);
   }

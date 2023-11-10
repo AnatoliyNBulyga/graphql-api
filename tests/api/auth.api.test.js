@@ -3,11 +3,11 @@ import {
   LOGIN_MUTATION,
   SIGNUP_MUTATION,
 } from "./auth.api.test.gql";
-import connectDB, { closeDatabase } from "../../db";
 import { testUser } from "../../config/environment";
 import { afterAll, beforeAll, describe, expect, test } from "@jest/globals";
 import User from "../../db/models/User";
 import graphqlServer from "../../graphql";
+import connectDB, { dropTestDatabase } from "../../db";
 
 describe("Test auth api", () => {
   beforeAll(async () => {
@@ -16,7 +16,7 @@ describe("Test auth api", () => {
 
   afterAll((done) => {
     // Closing the DB connection allows Jest to exit successfully.
-    closeDatabase().finally(done);
+    dropTestDatabase().finally(done);
   });
 
   test("Test login mutation fail", async () => {
@@ -50,7 +50,7 @@ describe("Test auth api", () => {
     const response = await graphqlServer.executeOperation({
       query: SIGNUP_MUTATION,
       variables: {
-        name: "Test User",
+        name: `Test ${Date.now()} User`,
         email: testUser.email,
         password: "Test12345_",
       },
